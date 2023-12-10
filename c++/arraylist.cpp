@@ -2,14 +2,22 @@
 using namespace std;
 
 int main() {
-    int x, y, z, q;
-    int age[4] = {x, y, z, q};
+    int father, mother, son, dog;
+    int age[4] = {father, mother, son, dog};
+    string names[4] = {"father", "mother", "son", "dog"};
 
     int i = 0;
     while (i < 4) {
-        cout << "Enter age: ";
+        cout << "Enter age of " << names[i] << ": ";
         cin >> age[i];
-        cout << age[i] << endl;
+        i++;
+    }
+
+    // Print out all stored data in the array using a while loop
+    i = 0;
+    cout << "Stored data in the array:" << endl;
+    while (i < 4) {
+        cout << "Age of " << names[i] << ": " << age[i] << endl;
         i++;
     }
 
