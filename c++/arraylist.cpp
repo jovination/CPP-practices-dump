@@ -10,6 +10,7 @@ int main() {
     while (i < 4) {
         cout << "Enter age of " << names[i] << ": ";
         cin >> age[i];
+        
         i++;
     }
 
