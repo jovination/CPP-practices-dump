@@ -40,6 +40,16 @@ void Stars(const vector<COORD> &stars)
     }
 }
 
+void ScrollText(const string &text, int x, int y)
+{
+    for (int i = 0; i < text.length(); i++)
+    {
+        SetPos(x + i, y);
+        cout << text[i];
+        this_thread::sleep_for(chrono::milliseconds(100));
+    }
+}
+
 int main()
 {
     srand(time(NULL));
@@ -53,15 +63,19 @@ int main()
     }
 
     // Draw trees
+    vector<COORD> treePositions;
     for (int i = 0; i < 80 / 3; i++)
     {
         COORD pos = {i * 3, 24 - 3};
+        treePositions.push_back(pos);
         Tree(pos.X, pos.Y);
     }
 
-    // Wish merry Christmas
-    SetPos(30, 12);
-    cout << "Merry Christmas!";
+    // Wish merry Christmas (scrolling text)
+    string message = "Merry Christmas!";
+    int textX = 80; // Start position for scrolling text
+    int textY = 12;
+    ScrollText(message, textX, textY);
 
     // Start animating
     int delay = 500;
